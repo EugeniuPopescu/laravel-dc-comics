@@ -12,11 +12,11 @@
     
             <!-- card render -->
             <div class="d-flex flex-wrap">
-                @foreach ($fumetti as $fumetto)
+                @foreach ($comics as $comic)
                     <div class="col-2 my-3">
                         <div class="d-flex flex-column">
-                            <img class="fumetto-img" src="{{ $fumetto["thumb"] }}" alt="">
-                            <a class="pt-2 text">{{ strtoupper($fumetto["title"]) }}</a>
+                            <img class="fumetto-img" src="{{ $comic[0]->thumb }}" alt="">
+                            <a class="pt-2 text">{{ strtoupper($comic->title) }}</a>
                         </div>
                     </div>
                 @endforeach

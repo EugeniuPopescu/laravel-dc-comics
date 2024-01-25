@@ -18,5 +18,10 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
+        // mi lancia tutti i seeders attraverso un solo comando
+        $this->call([
+            ComicsSeeder::class,
+        ]);
     }
 }
