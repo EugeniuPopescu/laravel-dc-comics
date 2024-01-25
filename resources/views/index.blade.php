@@ -15,7 +15,7 @@
                 @foreach ($comics as $comic)
                     <div class="col-2 my-3">
                         <div class="d-flex flex-column">
-                            <img class="fumetto-img" src="{{ $comic[0]->thumb }}" alt="">
+                            <img class="fumetto-img" src="{{ $comic->thumb }}" alt="">
                             <a class="pt-2 text">{{ strtoupper($comic->title) }}</a>
                         </div>
                     </div>

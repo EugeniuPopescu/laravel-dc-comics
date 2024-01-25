@@ -13,7 +13,7 @@ class ComicsSeeder extends Seeder
      */
     public function run(): void
     {
-        $array_comic = config("data.fumetti");
+        $array_comic = config("comics");
 
         foreach ($array_comic as $comic_item) {
             $new_comic = new Comic();
