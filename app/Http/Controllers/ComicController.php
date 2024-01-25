@@ -12,7 +12,7 @@ class ComicController extends Controller
     // elencare tutte le risorse
     public function index()
     {
-        //
+        return "Lista fumetti";
     }
 
     /**
