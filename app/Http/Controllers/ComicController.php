@@ -15,7 +15,7 @@ class ComicController extends Controller
     {
         $comics = Comic::all();
 
-        return view("index", compact("comics"));
+        return view("comics.index", compact("comics"));
     }
 
     /**
@@ -44,7 +44,7 @@ class ComicController extends Controller
     // serve per mostrare una singola risorsa
     public function show(string $id)
     {
-        //
+        return "hai ricchiesto la pasta $id";
     }
 
     /**

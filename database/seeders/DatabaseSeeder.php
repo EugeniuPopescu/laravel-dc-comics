@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
 
         // mi lancia tutti i seeders attraverso un solo comando
         $this->call([
-            ComicsSeeder::class,
+            ComicsSeeder::class
         ]);
     }
 }

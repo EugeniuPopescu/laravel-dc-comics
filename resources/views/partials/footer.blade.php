@@ -19,9 +19,9 @@
                             <div>
                                 <span class="span-fm text-light fs-5">Shop</span>
                                 <ul class="p-0">
-                                    @foreach ($shops as $shop)
+                                    {{-- @foreach ($shops as $shop)
                                     <li class="text-secondary" v-for="shop in shops"><a class="a-fm" href="#">{{ $shop["text"] }}</a></li>
-                                    @endforeach
+                                    @endforeach --}}
                                 </ul>
                             </div>
                         </div>
@@ -33,9 +33,9 @@
                         <div>
                             <span class="span-fm text-light fs-5">DC</span>
                             <ul class="p-0">
-                                @foreach ($dcs as $dc)
+                                {{-- @foreach ($dcs as $dc)
                                 <li class="text-secondary"><a class="a-fm" href="#">{{ $dc["text"] }}</a></li>
-                                @endforeach
+                                @endforeach --}}
                             </ul>
                         </div>
                     </div>
@@ -45,9 +45,9 @@
                         <div>
                             <span class="span-fm text-light fs-5">SITES</span>
                             <ul class="p-0">
-                                @foreach ($sites as $site)
+                                {{-- @foreach ($sites as $site)
                                 <li class="text-secondary"><a class="a-fm" href="#">{{ $site["text"] }}</a></li>
-                                @endforeach
+                                @endforeach --}}
                             </ul>
                         </div>
                     </div>
@@ -71,9 +71,9 @@
         
                 <div class="col-6 d-flex justify-content-end align-items-center">
                     <span class="span-fb me-3">FOLLOW US</span>
-                    @foreach ($imags as $img)
+                    {{-- @foreach ($imags as $img)
                         <img class="mx-2" src="{{ $img["img"] }}" alt="">
-                    @endforeach
+                    @endforeach --}}
                 </div>
             </div>
         </div>

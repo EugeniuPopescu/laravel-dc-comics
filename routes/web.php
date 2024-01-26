@@ -15,10 +15,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('index', config("data"));
+    return view('home', config("data"));
 })->name("HomePage");
 
 // route per il controller ComicController
 // piazza tutte le rotte insieme
-// nome al plurale
+// COMICS
 Route::resource("comics", ComicController::class);
