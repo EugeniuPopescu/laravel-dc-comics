@@ -11,7 +11,7 @@
             
     
             <!-- card render -->
-            {{-- <div class="d-flex flex-wrap">
+            <div class="d-flex flex-wrap">
                 @foreach ($comics as $comic)
                     <div class="col-2 my-3">
                         <div class="d-flex flex-column">
@@ -20,7 +20,7 @@
                         </div>
                     </div>
                 @endforeach
-            </div> --}}
+            </div>
 
             <!-- btn load more -->
             <div class="d-flex justify-content-center py-5">

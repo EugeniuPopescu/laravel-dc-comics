@@ -25,7 +25,9 @@ class ComicController extends Controller
     // da l'interfaccia, ci metto i dati
     public function create()
     {
-        return view("comics.create");
+        $dati = config("data");
+
+        return view("comics.create", compact("dati"));
     }
 
     /**
@@ -35,7 +37,19 @@ class ComicController extends Controller
     // dopo chiami lo store per salvare i dati
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $comic = new Comic();
+        $comic->title = $data["title"];
+        $comic->description = $data["description"];
+        $comic->thumb = $data["thumb"];
+        $comic->price = $data["price"];
+        $comic->series = $data["series"];
+        $comic->sale_date = $data["sale_date"];
+        $comic->type = $data["type"];
+        $comic->save();
+
+        return redirect()->route("comics.show", $comic->id);
     }
 
     /**
@@ -44,37 +58,62 @@ class ComicController extends Controller
     // serve per mostrare una singola risorsa
     // public function show(string $id)  // senza dependency-injaction
     // $comic arriva dalla route:list
-    public function show(Comic $comic) // CON dependency-injaction
+    // public function show(string $id) // senza dependency-injaction
+    public function show(Comic $comic)  // CON dependency-injaction
     {
-        // find un unico prodotto
+        // find trova un unico prodotto
         // $comic = Comic::find($id); // senza dependency-injaction
         $dati = config("data");
+
+        // MODO CON DEPENDENCY
         return view("comics.show", compact("comic", "dati"));
+
+        // MODO SENZA DEPENDENCY
+        // if per controllo se esiste l'id
+        // if ($comic) {
+        //     return view("comics.show", compact("comic", "dati"));
+        // } else {
+        //     abort(404);
+        // }
+
+        // MODO SENZA DEPENDENCY
+        // if (!$comic) {
+        //     abort(404);
+        // }
+        // return view("comics.show", compact("comic", "dati"));
+
+        // MODO SENZA DEPENDENCY
+        // senza dependenci injaction, ma con FindOrFail
+        // $comic = Comic::findOrFail($id);
+        // return view("comics.show", compact("comic", "dati"));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
     // restituisce la vista dove vuoi modificare i dati
-    public function edit(string $id)
+    public function edit(Comic $comic)
     {
-        //
+        $dati = config("data");
+
+        return view("comics.edit", compact("dati"));
     }
 
     /**
      * Update the specified resource in storage.
      */
     // prende i dati e li aggiorna modificati nel database
-    public function update(Request $request, string $id)
+    public function update(Request $request, Comic $comic)
     {
-        //
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Comic $comic)
     {
-        //
+        $comic->delete();
+
+        return redirect()->route("comics.index");
     }
 }

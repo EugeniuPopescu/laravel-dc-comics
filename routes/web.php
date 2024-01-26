@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ComicController;
 use Illuminate\Support\Facades\Route;
+use App\Models\Comic;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,9 +15,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home', config("data"));
-})->name("HomePage");
+// Route::get('/', function () {
+//     return redirect()->route("comics.index");
+// })->name("HomePage");
+
+
+// restituisco la view, si può semplificare (vedi sotto)
+// Route::get('/', function () {
+//     $comics = Comic::all();
+//     $dati = config("data");
+//     return view('comics.index', compact("comics", "dati"));
+// })->name("HomePage");
+
+// Ricchiamo l'index dal controller per evitare di riscrivere il codice
+Route::get("/", [ComicController::class, "index"])->name("home");
 
 // route per il controller ComicController
 // piazza tutte le rotte insieme
