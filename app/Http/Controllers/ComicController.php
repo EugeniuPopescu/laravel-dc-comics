@@ -49,6 +49,8 @@ class ComicController extends Controller
         $comic->type = $data["type"];
         $comic->save();
 
+        // mi manda sulla pagina sulla pagina del dettaglio SHOW di quesl ID
+        // PATTERN
         return redirect()->route("comics.show", $comic->id);
     }
 
@@ -96,7 +98,7 @@ class ComicController extends Controller
     {
         $dati = config("data");
 
-        return view("comics.edit", compact("dati"));
+        return view("comics.edit", compact("comic", "dati"));
     }
 
     /**
@@ -105,6 +107,12 @@ class ComicController extends Controller
     // prende i dati e li aggiorna modificati nel database
     public function update(Request $request, Comic $comic)
     {
+        $data = $request->all();
+        $comic->update($data);
+
+        // ddd($data);
+
+        return redirect()->route("comics.show", $comic->id);
     }
 
     /**

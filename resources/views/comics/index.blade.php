@@ -30,7 +30,7 @@
             <!-- btn load more -->
             <div class="d-flex justify-content-center py-5">
                 <div>
-                    <a class="load">LOAD MORE</a>
+                    <a class="load" href="{{ route("comics.create") }}">Add new Comic</a>
                 </div>
             </div>
         
