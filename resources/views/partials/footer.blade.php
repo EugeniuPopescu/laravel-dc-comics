@@ -9,9 +9,9 @@
                         <div>
                             <span class="span-fm text-light fs-5">DC Comics</span>
                             <ul class="p-0">
-                                @foreach ($comics as $comic)
+                                {{-- @foreach ($comics as $comic)
                                 <li class="text-secondary"><a class="a-fm" href="#">{{ $comic["text"] }}</a></li>
-                                @endforeach
+                                @endforeach --}}
                             </ul>
                         </div>
     

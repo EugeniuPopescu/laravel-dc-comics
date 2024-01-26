@@ -25,7 +25,7 @@ class ComicController extends Controller
     // da l'interfaccia, ci metto i dati
     public function create()
     {
-        //
+        return view("comics.create");
     }
 
     /**
@@ -42,9 +42,14 @@ class ComicController extends Controller
      * Display the specified resource.
      */
     // serve per mostrare una singola risorsa
-    public function show(string $id)
+    // public function show(string $id)  // senza dependency-injaction
+    // $comic arriva dalla route:list
+    public function show(Comic $comic) // CON dependency-injaction
     {
-        return "hai ricchiesto la pasta $id";
+        // find un unico prodotto
+        // $comic = Comic::find($id); // senza dependency-injaction
+
+        return view("comics.show", compact("comic"));
     }
 
     /**
