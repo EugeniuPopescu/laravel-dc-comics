@@ -14,8 +14,8 @@ class ComicController extends Controller
     public function index()
     {
         $comics = Comic::all();
-
-        return view("comics.index", compact("comics"));
+        $dati = config("data");
+        return view("comics.index", compact("comics", "dati"));
     }
 
     /**
@@ -48,8 +48,8 @@ class ComicController extends Controller
     {
         // find un unico prodotto
         // $comic = Comic::find($id); // senza dependency-injaction
-
-        return view("comics.show", compact("comic"));
+        $dati = config("data");
+        return view("comics.show", compact("comic", "dati"));
     }
 
     /**
