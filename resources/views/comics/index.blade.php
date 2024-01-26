@@ -18,7 +18,12 @@
                     <a href="{{ route("comics.show", $comic->id) }}">
                         <div class="col-2 my-3">
                             <div class="d-flex flex-column">
-                                <img class="fumetto-img" src="{{ $comic->thumb }}" alt="">
+                                {{-- controllo sull'immagine --}}
+                                @if ($comic->thumb)
+                                    <img class="fumetto-img" src="{{ $comic->thumb }}" alt="">    
+                                @else
+                                    <img class="fumetto-img" src="https://i.pinimg.com/736x/e6/af/83/e6af836df0ca29f3bd0b3384c48a0b9e.jpg" alt="">    
+                                @endif
                                 <a class="pt-2 text">{{ strtoupper($comic->title) }}</a>
                             </div>
                         </div>
