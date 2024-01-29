@@ -13,9 +13,22 @@
                 @else
                     <img class="fumetto-img show-img" src="https://i.pinimg.com/736x/e6/af/83/e6af836df0ca29f3bd0b3384c48a0b9e.jpg" alt="">    
                 @endif
-                <h2 class="pt-2">{{ strtoupper($comic->title) }}</h2>
+
+                <h1 class="pt-5">{{ strtoupper($comic->title) }}</h1>
+
+                <p class="pt-2">Price: {{ $comic->price }}</p>
+
+                <p class="">{{ $comic->series }}</p>
+
+                <p class="">{{ $comic->description }}</p>
+                
+                <p class="">{{ $comic->sale_date }}</p>
+
+                <p>
+                </p>
             </div>
         </div>
+
 
         <div >
             {{-- edit --}}

@@ -31,16 +31,16 @@
                     {{-- description  --}}
                     <div class="mb-3">
                         <label for="description"  class="form-label">Description</label>
-                        <textarea class="form-control" rows="2" id="description" name="description" value="{{ $comic->description }}"></textarea>
+                        <textarea class="form-control" rows="2" id="description" name="description" value="{{ old('thumb') ?? $comic->description }}"></textarea>
                     </div>
                     {{-- thumb  --}}
                     <div class="mb-3">
-                        <label for="thumb" class="form-label">Thumb</label>
-                        <input type="text" class="form-control @error("thumb") is-invalid @enderror" id="thumb" name="thumb" value="{{ old('thumb') ??$comic->thumb }}" >
+                        <label for="thumb" class="form-label">Thumb</label> 
+                        <input type="text" class="form-control @error("thumb") is-invalid @enderror" id="thumb" name="thumb" value="{{ old('thumb') ?? $comic->thumb }}" >
 
                         {{-- error message --}}
                         @error("thumb")
-                            <div class="invalid-feedback">{{ $message }}</div>
+                            <div class="invalid-feedback">{{ $message }}</div> 
                         @enderror
                     </div>
                     {{-- price --}}
