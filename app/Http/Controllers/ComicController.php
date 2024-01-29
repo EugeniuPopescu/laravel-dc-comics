@@ -40,13 +40,14 @@ class ComicController extends Controller
         $data = $request->all();
 
         $comic = new Comic();
-        $comic->title = $data["title"];
-        $comic->description = $data["description"];
-        $comic->thumb = $data["thumb"];
-        $comic->price = $data["price"];
-        $comic->series = $data["series"];
-        $comic->sale_date = $data["sale_date"];
-        $comic->type = $data["type"];
+        // $comic->title = $data["title"];
+        // $comic->description = $data["description"];
+        // $comic->thumb = $data["thumb"];
+        // $comic->price = $data["price"];
+        // $comic->series = $data["series"];
+        // $comic->sale_date = $data["sale_date"];
+        // $comic->type = $data["type"];
+        $comic->fill($data);
         $comic->save();
 
         // mi manda sulla pagina sulla pagina del dettaglio SHOW di quesl ID
