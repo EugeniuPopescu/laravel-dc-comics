@@ -14,18 +14,19 @@ class ComicController extends Controller
     public function validation($data)
     {
         $validate = Validator::make($data, [
-            "title" => "required",
+            "title" => "required|min:3",
             // "description" => "required",
             // "thumb" => "required",
             "price" => "required",
             "series" => "required",
-            "sale_date" => "required",
+            "sale_date" => "date",
             "type" => "required"
         ], [
             "title.required" => "Inserire un Titolo",
+            "title.min" => "Inserire almeno 3 caratteri",
             "price.required" => "Inserire un Prezzo",
             "series.required" => "Inserire il Prezzo",
-            "sale_date.required" => "Inserire una data di vendita",
+            "sale_date.date" => "Inserire una data di vendita valida",
             "type.required" => "Inserire un Tipo di fumetto",
         ])->validate();
 
@@ -136,7 +137,10 @@ class ComicController extends Controller
     public function update(Request $request, Comic $comic)
     {
         $data = $request->all();
-        $comic->update($data);
+
+        $validated_data = $this->validation($data);
+
+        $comic->update($validated_data);
 
         // ddd($data);
 

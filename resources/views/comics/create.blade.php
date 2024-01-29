@@ -90,7 +90,11 @@
                     {{-- type --}}
                     <div class="mb-3">
                         <label for="type" class="form-label">Type</label>
-                        <input type="text" class="form-control @error("type") is-invalid @enderror" id="type" name="type" >
+                        <select class="form-select" id="type" name="type">
+                            <option value="comic" @selected(old('type') == 'comic')>Comic Book</option>
+                            <option value="graphic" @selected(old('type') == 'graphic')>Graphic Novel</option>
+                            <option value="prova" @selected(old('type') == 'prova')>Prova</option>
+                        </select>
 
                         {{-- error message --}}
                         @error("type")
