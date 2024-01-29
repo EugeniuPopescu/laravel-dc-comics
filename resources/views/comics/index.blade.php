@@ -9,11 +9,9 @@
             <div class="pb-5">
                 <a class="series">CURRENT SERIES</a>
             </div>
-            
     
             <!-- card render -->
             <div class="d-flex flex-wrap">
-           
                 @foreach ($comics as $comic)
                     <a href="{{ route("comics.show", $comic->id) }}">
                         <div class="col-2 my-3">
@@ -29,7 +27,6 @@
                         </div>
                     </a>
                 @endforeach
-    
             </div>
 
             <!-- btn load more -->

@@ -4,9 +4,34 @@ namespace App\Http\Controllers;
 
 use App\Models\Comic;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class ComicController extends Controller
 {
+    /**
+     * Validation.
+     */
+    public function validation($data)
+    {
+        $validate = Validator::make($data, [
+            "title" => "required",
+            // "description" => "required",
+            // "thumb" => "required",
+            "price" => "required",
+            "series" => "required",
+            "sale_date" => "required",
+            "type" => "required"
+        ], [
+            "title.required" => "Inserire un Titolo",
+            "price.required" => "Inserire un Prezzo",
+            "series.required" => "Inserire il Prezzo",
+            "sale_date.required" => "Inserire una data di vendita",
+            "type.required" => "Inserire un Tipo di fumetto",
+        ])->validate();
+
+        return $validate;
+    }
+
     /**
      * Display a listing of the resource.
      */
@@ -39,6 +64,8 @@ class ComicController extends Controller
     {
         $data = $request->all();
 
+        $validated_data = $this->validation($data);
+
         $comic = new Comic();
         // $comic->title = $data["title"];
         // $comic->description = $data["description"];
@@ -47,7 +74,7 @@ class ComicController extends Controller
         // $comic->series = $data["series"];
         // $comic->sale_date = $data["sale_date"];
         // $comic->type = $data["type"];
-        $comic->fill($data);
+        $comic->fill($validated_data);
         $comic->save();
 
         // mi manda sulla pagina sulla pagina del dettaglio SHOW di quesl ID
